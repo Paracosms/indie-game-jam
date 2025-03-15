@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7p7yms6js2or"]
+
+[ext_resource type="Texture2D" uid="uid://bkpav3athovmb" path="res://sprites/rockBullet.png" id="1_a2isr"]
+[ext_resource type="Script" path="res://scenes/bullet.gd" id="1_s2iwm"]
+
+[node name="bullet" type="CharacterBody2D"]
+script = ExtResource("1_s2iwm")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture_filter = 1
+texture = ExtResource("1_a2isr")
