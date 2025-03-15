@@ -1,20 +1,16 @@
 [gd_scene load_steps=3 format=3 uid="uid://v2sf8sr7yod4"]
 
-[ext_resource type="Script" path="res://scripts/rockShotgun.gd" id="1_lamdw"]
+[ext_resource type="Script" path="res://rockShotgun.gd" id="1_lamdw"]
 [ext_resource type="Texture2D" uid="uid://4s3hpy0cl44n" path="res://sprites/shotgun.png" id="2_2m2ql"]
 
 [node name="rockShotgun" type="Node2D"]
 script = ExtResource("1_lamdw")
 
-[node name="Camera2D delete" type="Camera2D" parent="."]
+[node name="cooldown" type="Timer" parent="."]
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [node name="shotgunSprite" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 texture_filter = 1
 texture = ExtResource("2_2m2ql")
-
-[node name="cooldownTimer" type="Timer" parent="."]
-unique_name_in_owner = true
-wait_time = 0.5
-
-[connection signal="timeout" from="cooldownTimer" to="." method="_on_cooldown_timeout"]
