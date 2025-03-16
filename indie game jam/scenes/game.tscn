@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvwcoane50rxt"]
+
+[ext_resource type="PackedScene" uid="uid://cmxvey0r176jn" path="res://scenes/player.tscn" id="1_k5auk"]
+[ext_resource type="PackedScene" uid="uid://k7710cbyd34i" path="res://scenes/wind.tscn" id="2_61cm1"]
+
+[node name="game" type="Node2D"]
+position = Vector2(388, 223)
+
+[node name="player" parent="." instance=ExtResource("1_k5auk")]
+
+[node name="wind" parent="." instance=ExtResource("2_61cm1")]

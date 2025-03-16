@@ -5,8 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://v2sf8sr7yod4" path="res://scenes/rock_shotgun.tscn" id="3_0vhhq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_uld8v"]
-radius = 32.0
-height = 86.0
+radius = 8.0
+height = 24.0
 
 [node name="player" type="CharacterBody2D"]
 script = ExtResource("1_sjcp4")
@@ -16,6 +16,7 @@ texture_filter = 1
 texture = ExtResource("2_y0wjg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 0)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_uld8v")
 

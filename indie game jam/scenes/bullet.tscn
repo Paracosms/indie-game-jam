@@ -1,7 +1,11 @@
-[gd_scene load_steps=3 format=3 uid="uid://c7p7yms6js2or"]
+[gd_scene load_steps=4 format=3 uid="uid://c7p7yms6js2or"]
 
 [ext_resource type="Texture2D" uid="uid://bkpav3athovmb" path="res://sprites/rockBullet.png" id="1_a2isr"]
 [ext_resource type="Script" path="res://scripts/bullet.gd" id="1_i0myw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0bubn"]
+radius = 2.0
+height = 6.0
 
 [node name="bullet" type="CharacterBody2D"]
 script = ExtResource("1_i0myw")
@@ -9,3 +13,11 @@ script = ExtResource("1_i0myw")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture = ExtResource("1_a2isr")
+
+[node name="hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_0bubn")
+
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]

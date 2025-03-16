@@ -7,6 +7,7 @@ var mousePos : Vector2
 var mouseAngle : float
 var cooldownFinished : bool = true
 
+
 func _process(delta):
 
 	
@@ -19,30 +20,31 @@ func _process(delta):
 	%shotgunSprite.look_at(get_global_mouse_position())
 	%shotgunSprite.flip_h = false
 	
-		# normalized vectors only range from -PI to PI, so adding this allows for full range of motion
+	
+	# normalized vectors only range from -PI to PI, so adding this allows for full range of motion
 	if mousePos.x < 0 :
 		mouseAngle += PI
 		%shotgunSprite.flip_h = true
 		%shotgunSprite.rotation += PI
 	
 	
+	position = mousePos * 15
 	
-	if Input.is_action_pressed("shoot") && cooldownFinished : # TODO: && cooldowntimer
+	if Input.is_action_pressed("shoot") && cooldownFinished :
+		# begin cooldown
 		cooldownFinished = false
 		%cooldownTimer.start()
+		
+		%shotgunSound.playing = true
+		
 		for bulletsSpawned in 5:
-			
-			
-			
-
-			
 			# spawn bullet
 			var bullet = bulletScene.instantiate()
 			add_child(bullet) # change later ?
 			
 			# creates a random angle in range of the max bullet spread angle
+			# moves bullet in direction of random angle
 			var randomAngle = randf_range(-maxBulletSpreadAngle, maxBulletSpreadAngle)
-			
 			var angleVector = Vector2(cos(randomAngle + mouseAngle), sin(randomAngle + mouseAngle))
 			bullet.velocity = angleVector * 1000
 		
